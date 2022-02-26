@@ -1,0 +1,73 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="promo">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 offset-md-0 col-lg-10 offset-lg-1">
+              <h1 class="promo_header">Храм Никиты Исповедника</h1>
+              <h2 class="promo_subheader">Основанный в период с 1782 по 1795гг.</h2>
+              <div class="promo_descr">
+                Единственный уцелевший в Волгограде старинный храм (1795 года постройки).  Не действовал только три года: с 1940 по 1943 г.г. Приход многоклирный. Богослужения совершаются ежедневно. С 1990 г. проводятся реставрационные стен алтаря и верхнего яруса колокольни. Имеется воскресная школа «Святитель Феодор Епископ Едесский» и библиотека. 
+                  <br><br>
+                  Священники прихода посещают школу интернат №4, средние школы № 24, №57, №122, Волгоградский Государственный Университет, а также ведут душепопечительскую работу в больнице №1, №7, больнице «Каустик» и хосписе.
+              </div>
+              <button class="promo_btn"><a href="#about" class="menu_link">О Храме</a></button>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about_title">О Храме</div>
+    <div class="about_wrapper">
+      <img src="{% static 'portfolio/khram2.jpg' %}" alt="" class="about_img">
+      <div class="about_text"><p>Волгоградская Свято-Никитская церковь была сооружена в 18 веке на средства мецената, фаворита императрицы Никиты Бекетова. Будучи воспитанником шляхетского корпуса, Никита участвовал в спектаклях, даваемых в присутствии императрицы Елизаветы Петровны, и обратил на себя ее внимание. После выпуска из корпуса премьер-майор Бекетов был зачислен адъютантом к графу А. Г. Разумовскому, в скором времени фаворит был произведен в чин полковника и получил богатые поместья в качестве даров от императрицы. На сайте parusvlg.ru читайте подробности.В середине 18 века по приказу императрицы Екатерины II Никита Афанасьевич назначается астраханским губернатором, спустя время – сенатором и получает во владение земли возле крепости Царицына, здесь он и основал село Отрада, ставшее его имением (в настоящее время территория села относится к Волгограду). В 1782 году Бекетов создал церковь своему святому покровителю Никите-исповеднику.</p>
+      <p>Для сооружения Волгоградского храма Никита Афанасьевич взял во владении завод выстроенный из кирпича и на его месте была сооружена Свято-Никитская церковь и трапезная, колокольня и купол оставались деревянными.</p>
+      <p>Спустя годы церковь начала рушиться, в 1867 именитый землевладелец Царицына Валериан Попов, взялся за починку здания и пожертвовал на ремонт 120 рублей, в дополнение к 400 рублям приходских денег. В церкви сменили деревянные окна и двери, а также выстроили сторожку. В этом же году деревянную колокольню перестроили в каменную, после чего приступили строить приделы к церкви. До сегодняшнего дня сохранились голландские печи в приделах и кованые решетки на окнах.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="news" id="news">
+  <div class="container">
+    <div class="about_title">Новости Храма</div>
+    <div class="news_wrapper">
+
+      {% for project in projects %}
+
+      {% if project.url %}
+        <a href="{{ project.url }}">
+          <img src="{{ project.image.url }}" class="news_img">
+        </a>
+      {% endif %}
+
+      {% if project.img %}
+      <img src="{{ project.image.url }}" class="news_img">
+      {% endif %}
+      
+        <div class="news_text">
+          <h2 class="news_title">{{ project.title }}</h2>
+          <p class="news_descr">{{ project.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ada27727d011f79bb97d801756bfc28a611be609c593f45ee1ffc28bfb18d4477&amp;source=constructor" width="100%" height="630" frameborder="0"></iframe>
+
+  <div class="footer__info" id="contacts">
+    <address class="footer__addr">Волгоград, Абганеровская ул., 110А</address>
+    <a class="footer__phone" href="tel:+78442445887">8 (8442) 44-58-87</a>
+    <div class="footer__social">
+        <a href="https://www.instagram.com/khram.nikity.ispovednika/" class="footer__social-item"><img src="{% static 'portfolio/instagram.svg' %}" alt="instagram"></a>
+    </div>
+</div>
+</footer>
+
+{% endblock %}

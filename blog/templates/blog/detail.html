@@ -1,0 +1,15 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+<section class="timetable">
+    <div class="container">
+        <h1 class="timetable_text">Расписание на {{ blog.date }}</h1>
+        <br>
+        <div class="timetable_wrapper">
+            <h2>{{ blog.title }}</h2>
+            <br>
+            <p class="timetable_descr">{{ blog.description }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
